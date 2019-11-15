@@ -1,0 +1,73 @@
+* install NODE
+* install create-react-app globally 
+* create app with create-react-app app-name
+
+this will create: 
+
+* node_modules FOLDER
+* public FOLDER
+
+after npm start
+
+* src FOLDER
+    index.js -> entry point
+
+        * imports dependencies from libraries
+            *main react
+            import React from 'react';
+            *main react
+            import ReactDOM from 'react-dom';
+            *css 
+            import './index.css';
+            *App component [must use "./" notation]
+            import App from './App';
+            *???
+            import * as serviceWorker from './serviceWorker';
+            *renders App component into an element whose id is root
+            ReactDOM.render(<App />, document.getElementById('root'));
+
+* vscode extensions 
+    * es7 React/Redux/GraphQL/React-Native
+    * snippets
+        rcc -> create react component
+        rcf -> create react component somewhere else
+
+    * vscode-styled-jsx
+    * vscode-styled-components
+
+*components
+
+    * componenti funzionali: componenti creati a partire da una funzione (arrow function)
+
+    const Pippo = (props) => {
+        return( 
+            <div>
+            <Header />
+            
+            </div>
+        )
+    }
+
+    * componenti di classe: definiti come classe che estende il componente base 
+        -> sfruttano cicli di vita e stato
+    import React, {Component}, from 'react'
+
+    class Paragrafo extends Component {
+
+        render() {
+            return (
+                <div> /</div>
+
+            )
+        }
+    }
+
+* props
+    * i componenti hanno delle proprieta. Le props sono oggetti le cui chiavi corrispondono alle proprieta' del componente. 
+        *Non possono essere modificate
+
+*state 
+    * oggetto che contiene dati dinamici che vengono osservate. 
+    * e' gestito e aggiornato dal componente in cui e' incapsulato 
+
+*cicli di vita

@@ -1,26 +1,47 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import HeaderZaurdo from './HeaderZaurdo';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    // call constructor of mother class
+    super(props)
+
+    this.state = {
+      nome: "saro",
+      n: 0
+
+    }
+  }
+
+  updateN = () => {
+
+    setInterval(() => {
+      this.setState({
+        n: this.state.n += 1
+      })
+
+    }, 1000);
+
+  }
+
+  // viene invocato successivamente al render
+  componentDidMount() {
+    // this.updateN()
+  }
+  // viene invocato non appena il componente viene renderizzato
+  render() {
+
+    return (
+      // sintassi per creare un wrapper senza specificare header
+      <>
+        <HeaderZaurdo />
+        <div className="App">
+        </div>
+      </>
+    )
+  }
 }
 
 export default App;
