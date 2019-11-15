@@ -14,7 +14,7 @@ class HeaderZaurdo extends React.Component {
     return (
       <div className="HeaderZaurdo">
         <header>
-          <img src="/logo512.png" className="logo" ></img>
+          <img src="/logo512.png" className="logo" alt="logo" ></img>
         </header>
         <nav>
           <ul>

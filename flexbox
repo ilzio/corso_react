@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="item uno"></div>
+ <div class="item due"></div>
+  <div class="item tre"></div>
+</div>
+
+.container{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+/* justify content lavora su asse primario definito da direction   */
+  justify-content: center; 
+/*  lavora su asse secondario (contrario di flex-direction)  */
+  align-items: center;
+ }
+
+.uno{
+  background-color: blue;
+  flex: 2
+}
+.due{
+  background-color: red;
+/*  se valore non e' specificato, il div sara' della dimensione del suo contenuto  */
+  flex: 2
+}
+
+.tre{
+  background-color: green;
+  flex: 3
+}
+
+.item {
+  height: 100%
+}
+
+
