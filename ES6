@@ -67,9 +67,9 @@ Javascript ES6
 
 - array map -> cicla un array, esegue una funzione per ogni ciclo, pusha i valori in un array specificato
 
-const arrayDue = array.map((elemento, index) => {
-    return console.log(` elemento: ${elemento}, indice: ${index}` )
-})
+    const arrayDue = array.map((elemento, index) => {
+        return console.log(` elemento: ${elemento}, indice: ${index}` )
+    })
 
 - array filter creare array di oggetti che soddisfano una condizione
 

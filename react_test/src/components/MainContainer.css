@@ -1,0 +1,9 @@
+.MainContainer {
+    background-color: red;
+    height: 100vh;
+    flex: 80;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

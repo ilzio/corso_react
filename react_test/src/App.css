@@ -1,0 +1,20 @@
+.App-header {
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+    left: 0;
+    flex: 1;
+}
+
+.App-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.App-sidebar {
+    flex: 20 ;
+}
+
+.App-MainContainer {
+  flex: 80;
+}
