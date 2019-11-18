@@ -16,11 +16,12 @@ class App extends React.Component {
       
 
     }
+    // binding this to the object 
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.showTodoList = this.showTodoList.bind(this);
   }
 
-
+// make sidebar appear/disappear
   toggleNavbar() {
     this.setState({
       showSideBar: !this.state.showSideBar,
@@ -28,9 +29,7 @@ class App extends React.Component {
     })
   }
 
-  triggerFullScreenTodoList() {
-    alert('ciao mba')
-  }
+  // toggles a todo list and renders it conditionally inside the maincontainer -> probably wrong way to do it 
   showTodoList() {
     this.setState({
       showTodoList : !this.state.showTodoList
@@ -49,9 +48,12 @@ class App extends React.Component {
             className="App-sidebar"
             show={this.state.showSideBar}
           >
+            {/* button has been made generic and takes two props: the onclick function to be nested and the text it should display  */}
+            {/* ButtonGeneric is nested inside its parent component Sidebar. In order to make it appear, inside parent it is necessary to use props.children */}
             <ButtonGeneric text="Organizer" onclick={this.showTodoList} />
           </SideBar>
           <MainContainer className="App-MainContainer">
+            {/* another example of nested component */}
             <Todo show={this.state.showTodoList} />
           </MainContainer>
         </div>
