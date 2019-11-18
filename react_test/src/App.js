@@ -10,8 +10,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      showSideBar: true,
-      btnTxt: "Nascondi",
+      showSideBar: false,
+      btnTxt: "Mostra",
       showTodoList: false,
       
 

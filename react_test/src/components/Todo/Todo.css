@@ -18,6 +18,9 @@ li {
     border-bottom: solid grey 0.5px;
     margin-bottom: 5px;
     padding-bottom: 6px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 form {
@@ -28,6 +31,18 @@ input {
     width: 35%;
     padding: 5px;
     font-size: 1.3em;
+}
+
+.removeThingBtn {
+    background-color: red;
+    border: none;
+    padding: 0.5em;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5%;
+    text-shadow: none;
+    cursor: pointer;
 }
 
 .addThingBtn {
