@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Clock from './Clock'
-import Button from './Button'
+import ButtonGeneric from './ButtonGeneric'
 import "./Header.css"
 import logo from '../placeholder-logo.png'
 
@@ -24,7 +24,7 @@ import logo from '../placeholder-logo.png'
                </div>
                <Clock  />
                <div className="nav-container">
-                    <Button triggerParentSidebarUpdate={this.props.triggerParentSidebarUpdate} text={this.props.btnText}  />
+                    <ButtonGeneric onclick={this.props.triggerParentSidebarUpdate} text={this.props.btnText}  />
                </div>
             </header>
         )

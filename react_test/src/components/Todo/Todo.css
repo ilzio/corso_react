@@ -1,4 +1,41 @@
-.Todo{
+.Todo {
     background-color: white;
-    margin-left: 50px;
+    height: 100%;
+    width: 100%;
+
+    /* text-align: center; */
+}
+
+h3 {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    border-bottom: solid grey 0.5px;
+    margin-bottom: 5px;
+    padding-bottom: 6px;
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    width: 35%;
+    padding: 5px;
+    font-size: 1.3em;
+}
+
+.addThingBtn {
+    margin-top: 5px;
+    width: 25%;
+    padding: 5px;
+    background-color: green;
+    border-color: green;
+    color: white;
+    font-size: 1.3em;
 }

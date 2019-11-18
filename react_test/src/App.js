@@ -1,17 +1,23 @@
 import React from 'react';
 import Header from './components/Header'
+import ButtonGeneric from './components/ButtonGeneric'
 import SideBar from './components/Sidebar/SideBar'
 import MainContainer from './components/MainContainer'
 import './App.css';
+import Todo from './components/Todo/Todo';
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
       showSideBar: true,
-      btnTxt: "Nascondi"
+      btnTxt: "Nascondi",
+      showTodoList: false,
+      
+
     }
     this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.showTodoList = this.showTodoList.bind(this);
   }
 
 
@@ -19,6 +25,15 @@ class App extends React.Component {
     this.setState({
       showSideBar: !this.state.showSideBar,
       btnTxt: this.state.showSideBar ? 'Mostra' : 'Nascondi '
+    })
+  }
+
+  triggerFullScreenTodoList() {
+    alert('ciao mba')
+  }
+  showTodoList() {
+    this.setState({
+      showTodoList : !this.state.showTodoList
     })
   }
 
@@ -33,9 +48,12 @@ class App extends React.Component {
           <SideBar
             className="App-sidebar"
             show={this.state.showSideBar}
-          />
-          <MainContainer className="App-MainContainer"
-          />
+          >
+            <ButtonGeneric text="Organizer" onclick={this.showTodoList} />
+          </SideBar>
+          <MainContainer className="App-MainContainer">
+            <Todo show={this.state.showTodoList} />
+          </MainContainer>
         </div>
       </>
     );

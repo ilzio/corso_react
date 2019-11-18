@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
-import Todo from './Todo/Todo'
 import "./MainContainer.css"
 
 
  class MainContainer extends Component {
+     constructor(props){
+         super(props)
+         this.state = {
+             isFull: this.props.children
+         }
+     }
     render() {
         return (
             <div className="MainContainer">
-               This is main page wrapper
-               {/* <Todo /> */}
+               {this.state.isFull  ? this.props.children : "Niente da visualizzare" }
+               {/* {this.props.children} */}
             </div>
         )
     }

@@ -1,26 +1,13 @@
 import React, { Component } from 'react'
-// import "./SideBar.css"
+import "./Item.css"
 
 
- class Item extends Component {
-     constructor(props){
-         super(props)
-         this.state = {
-        //      items: [],
-             show: true
-         }
-     }
-    render() {
-        if (this.props.show) {
-            return (
-                <div className="">
-                </div>
-            )
-        }
-        return (
-            ""
-        )
-    }
+const Item = (props) => {
+    return (
+        <div className="Item">
+            {props.name}
+        </div>
+    )
 }
 
 export default Item;

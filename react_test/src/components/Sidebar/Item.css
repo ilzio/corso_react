@@ -1,0 +1,11 @@
+.Item{
+    background-color: black;
+    color: white;
+    width: 90%;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
