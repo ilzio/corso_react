@@ -13,8 +13,6 @@ class App extends React.Component {
       showSideBar: false,
       btnTxt: "Mostra",
       showTodoList: false,
-      
-
     }
     // binding this to the object 
     this.toggleNavbar = this.toggleNavbar.bind(this);

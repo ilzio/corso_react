@@ -33,9 +33,6 @@ class Todo extends React.Component {
                     <h3>Things to do</h3>
                     <Todolist items={this.state.items} removeItem={this.removeItems} />
                     <form onSubmit={this.handleSubmit}>
-                        {/* <label htmlFor="new-todo">
-                            What needs to be done?
-                        </label> */}
                         <input
                             id="new todo"
                             onChange={this.handleChange}
@@ -56,7 +53,6 @@ class Todo extends React.Component {
         this.setState({
             text: event.target.value
         })
-
     }
 
     handleSubmit(event) {
@@ -69,6 +65,7 @@ class Todo extends React.Component {
             text: this.state.text,
             id: Date.now()
         }
+        // why is this like that?
         this.setState(state => ({
             items: state.items.concat(newItem),
             text: ''

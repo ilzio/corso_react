@@ -30,9 +30,7 @@ class Todolist extends React.Component {
                             </li>
                         )
                     })
-                    // this.state.items.map((item, index) => {
-                    //     return <li key={item.id}>{index + 1} - {item.text} <button onClick={this.removeItem(item.id)}>)</button></li>
-                    // })
+                   
                 }
             </ul>
         )
