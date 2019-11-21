@@ -1,42 +1,47 @@
 import React from 'react';
 import './Profiles.css';
+import ProfilesTable from './ProfilesTable'
+import Form from './Form'
 
 // qunado non si specifica il cammino relativo, react cerca nella cartella node modules
 
 
 class Profiles extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      showProfiles : true,
+      btnText : "Iscriviti"
+    }
+  }
   static defaultProps = {
     items: []
   }
-  render() {
+  getItemsKeys = () => {
+    if(this.props.items.length){
+      return Object.keys(this.props.items[0])
+    }
+  }
 
+// using prevState allows to overcome state change asyncronous problems
+  toggleForm = () => {
+    this.setState(prevState => ({
+      showProfiles: !prevState.showProfiles,
+      btnText : (prevState.showProfiles ? "Iscriviti" : "Profili")
+    }))
+  } 
+
+  render() {
+    const chiavi = this.getItemsKeys()
     return (
-      <table className="profilesTable">
-        <thead className="profilesTableHead">
-          <tr>
-            <td>Id</td>
-            <td>Job Title</td>
-            <td>Type</td>
-            <td>Positions Vacants</td>
-            <td>SLO</td>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            this.props.items.map(item => (
-              
-             <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.jobTitle}</td>
-                <td>{item.type}</td>
-                <td>{item.positionVacant}</td>
-                <td>{item.staffLeasingOpportunity ? "yes" : "no"}</td>
-              </tr>
-             
-            ))
-          }
-        </tbody>
-      </table>
+      <>
+      <div className="topContainer">
+        <h3>Profili</h3>
+        <button onClick={this.toggleForm}>{this.state.btnText} </button>
+      </div>
+      {this.state.showProfiles ? <ProfilesTable items={this.props.items} /> : <Form />}
+     
+      </>
     )
 }
 }

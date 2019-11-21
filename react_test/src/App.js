@@ -52,6 +52,17 @@ class App extends React.Component {
           </SideBar>
           <MainContainer className="App-MainContainer">
             {/* another example of nested component */}
+            
+            {1===1 ? (
+              <div>
+
+              </div>
+            ) : (
+              null
+            )}
+
+           
+
             <Todo show={this.state.showTodoList} />
           </MainContainer>
         </div>
