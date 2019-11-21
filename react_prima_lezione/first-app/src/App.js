@@ -1,47 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-// import './App.css';
-import HeaderZaurdo from './components/HeaderZaurdo';
+import React, { Component } from 'react'
+import './App.css'
+import Header from './components/Header'
+import Profiles from './components/Profiles/Profiles'
 
-class App extends React.Component {
-  constructor(props) {
-    // call constructor of mother class
-    super(props)
 
-    this.state = {
-      nome: "saro",
-      n: 0
+const navConfig = [
+  { title: 'Profili' },
+  { title: 'About' },
 
-    }
-  }
+]
 
-  updateN = () => {
+const profiles = [
+  {
+    id: 1,
+    jobTitle: 'Python Developer',
+    type: 'core',
+    positionVacant: '25',
+    staffLeasingOpportunity: true
+  },
+  {
+    id: 2,
+    jobTitle: 'PhP Developer',
+    type: 'core',
+    positionVacant: '3',
+    staffLeasingOpportunity: false
+  },
+  {
+    id: 3,
+    jobTitle: 'Java Developer',
+    type: 'rare',
+    positionVacant: '999',
+    staffLeasingOpportunity: false
+  },
+]
 
-    setInterval(() => {
-      this.setState({
-        n: this.state.n += 1
-      })
-
-    }, 1000);
-
-  }
-
-  // viene invocato successivamente al render
-  componentDidMount() {
-    // this.updateN()
-  }
-  // viene invocato non appena il componente viene renderizzato
+export default class App extends Component {
   render() {
-
     return (
-      // sintassi per creare un wrapper senza specificare header
-      <>
-        <HeaderZaurdo />
-        <div className="App">
-        </div>
-      </>
+      <div className="App">
+        <Header config={navConfig} />
+        {/* <Header  /> */}
+        <Profiles items={profiles} />
+      </div>
     )
   }
 }
-
-export default App;

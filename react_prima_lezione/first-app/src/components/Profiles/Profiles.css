@@ -1,0 +1,36 @@
+.Header {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 
+.Logo {
+  display: inline;
+} */
+
+.NavList{
+  list-style: none;
+  margin-right: 5px;
+}
+
+.NavItem{
+  display: inline;
+  cursor: pointer;
+  margin: 0px 5px;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+}
+
+.profilesTable {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.profilesTableHead {
+  /* margin-bottom: 10px; */
+  color: red;
+}
