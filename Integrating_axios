@@ -1,0 +1,10 @@
+*Install axios in project
+
+    npm install axios --save
+
+* Use axios must import into component
+
+    import axios from 'axios';
+
+*use it inside componentDidMount, possibly with try catch
+

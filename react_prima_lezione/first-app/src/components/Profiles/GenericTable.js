@@ -22,7 +22,7 @@ class GenericTable extends React.Component {
   }
 
 
-  c
+  
 
   render() {
     // console.log(this.props.items.length)
