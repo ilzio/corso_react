@@ -6,37 +6,56 @@ import './Form.css';
 // https://reactjs.org/docs/forms.html
 
 class Form extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state = {
-      // name: '';
-      // surname: '';
-      // email: '';
-      // name: '';
-    }
+    // this.handleSubmit = this.props.handleSubmit.bind(this)
+
   }
-  
-  
+
+  handleInputChange = (event) => {
+    const value = event.target.value
+    const name = event.target.name
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.handleSubmit(this.state)
+  }
+
 
   render() {
     return (
-      <form className="Form">
+      // <form onSubmit={this.handleSubmit} className="Form">
+      <form onSubmit={this.handleSubmit} className="Form">
         <div className="form-group">
-          <label htmlFor="name">Nome</label>
-          <input name="" placeholder="Inserisci il tuo nome" type="text" />
+          <label htmlFor="id">Id</label>
+          <input name="id" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
-          <label htmlFor="surname">Cognome</label>
-          <input name="" placeholder="Inserisci il tuo cognome " type="text" />
+          <label htmlFor="jobTitle">jobTitle</label>
+          <input name="jobTitle" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email </label>
-          <input name="" placeholder="Inserisci la tua email" type="email" />
+          <label htmlFor="type">Type </label>
+          <select name="type" onChange={this.handleInputChange} >
+            <option value="core">core</option>
+            <option value="rare">rare</option>
+          </select>
+          {/* <input name="type" onChange={this.handleInputChange}   type="text" /> */}
         </div>
         <div className="form-group">
-          <label htmlFor="tel">Telefono</label>
-          <input name="" placeholder="Inserisci il tuo telefono" type="number" />
+          <label htmlFor="positionVacant">positionVacant</label>
+          <input name="positionVacant" onChange={this.handleInputChange} type="number" />
         </div>
+        <div className="form-group">
+          <label htmlFor="staffLeasingOpportunity">staffLeasingOpportunity</label>
+          <input type="checkbox" onChange={this.handleInputChange} name="staffLeasingOpportunity" />
+        </div>
+        <button type="submit">Invia</button>
       </form>
     )
   }

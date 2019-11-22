@@ -4,3 +4,17 @@
     justify-items: center;
     /* align-items: center; */
 }
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+.profilesTableHead{
+color: white;
+background: black;
+}
+

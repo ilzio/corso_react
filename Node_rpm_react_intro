@@ -113,3 +113,7 @@ after npm start
             )
         }
     }
+
+FORMS 
+
+* form components' state should exclusively contain 

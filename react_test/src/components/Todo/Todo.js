@@ -17,6 +17,7 @@ class Todo extends React.Component {
     // create new array with spread operator
         let array = [...this.state.items]
     // remove items from array
+    // use filter!!!
         array.splice(itemId, 1)
     // set state to new array
         this.setState(state => ({
