@@ -7,6 +7,7 @@ import UsersList from './components/Users/UsersList'
 
 const navConfig = [
   { title: 'Profili' },
+  { title: 'Utenti' },
   { title: 'About' },
 ]
 
@@ -17,9 +18,10 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header config={navConfig} />
-        {/* <Header  /> */}
         <Profiles />
+        <hr/>
         <UsersList />
+        <hr />
       </div>
     )
   }

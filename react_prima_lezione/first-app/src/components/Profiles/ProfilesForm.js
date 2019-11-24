@@ -1,16 +1,7 @@
 import React from 'react';
-import './Form.css';
+import './ProfilesForm.css';
 
-// qunado non si specifica il cammino relativo, react cerca nella cartella node modules
-
-// https://reactjs.org/docs/forms.html
-
-class Form extends React.Component {
-  constructor(props) {
-    super(props)
-    // this.handleSubmit = this.props.handleSubmit.bind(this)
-
-  }
+class ProfilesForm extends React.Component {
 
   handleInputChange = (event) => {
     const value = event.target.value
@@ -25,7 +16,6 @@ class Form extends React.Component {
     event.preventDefault();
     this.props.handleSubmit(this.state)
   }
-
 
   render() {
     return (
@@ -61,6 +51,6 @@ class Form extends React.Component {
   }
 }
 
-export default Form
+export default ProfilesForm
 
 

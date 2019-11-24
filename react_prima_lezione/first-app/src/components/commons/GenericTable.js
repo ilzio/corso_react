@@ -15,9 +15,9 @@ class GenericTable extends React.Component {
     }
   }
 
+  // not in use, idea  
   getArrangedItems = () => {
     const keys = this.getItemsKeys;
-
     for (let x in keys) { console.log(keys[x]) }
   }
 
@@ -25,7 +25,7 @@ class GenericTable extends React.Component {
   
 
   render() {
-    // console.log(this.props.items.length)
+    console.log("render method")
     const chiavi = this.getItemsKeys()
     return (
       <table className="profilesTable">
@@ -39,12 +39,13 @@ class GenericTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {/* TABELLA GENERICA CHE PRENDE CHIAVI E ITEM E LI RITORNA */}
+
+          {console.log(this.props.items)}
           {this.props.items.map((item, index) => (
             <tr key={index}>
-              {chiavi.map(chiave => <td>{item[chiave]}</td> )}
               
-
+              {chiavi.map(chiave =>  <td>{item[chiave]}</td> )}
+            <td>address field is an object!</td>
             </tr>
           ))
           }
@@ -52,6 +53,7 @@ class GenericTable extends React.Component {
       </table>
     )
   }
+  
 }
 
 export default GenericTable
