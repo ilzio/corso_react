@@ -6,11 +6,11 @@ import logged from  './isLogged'
 import {combineReducers} from 'redux'
 
 // combine them here 
-const allReducers = combineReducers({
+const rootReducers = combineReducers({
     counter, 
     logged
 })
 
 
 // export all of them
-export default allReducers
+export default rootReducers

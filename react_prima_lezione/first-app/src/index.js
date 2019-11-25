@@ -6,14 +6,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // import reducers from index file
-import reducers from './reducers'
+import rootReducer from './reducers'
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
 
 
 // creates store with importer combined reducers
 let store = createStore(
-    reducers, 
+    rootReducer, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
     )
@@ -22,30 +22,6 @@ let store = createStore(
 // Actions -> describe what is to be done. 
 // Arrow functions that return an object
 
-
-const increment = (payload) => {
-    return{
-        type: 'INCREMENT',
-    }
-}
-const incrementBy = (payload) => {
-    return {
-        type: 'INCREMENT_BY',
-        payload
-    }
-}
-
-const decrement = () => {
-    return{
-        type: 'DECREMENT'
-    }
-}
-
-const login = () => {
-    return {
-        type: 'SIGN_IN'
-    }
-}
 
 
 
