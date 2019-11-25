@@ -48,7 +48,6 @@ class UsersTable extends React.Component {
 
 
   render() {
-    console.log("selected row: ", this.state.selectedRow)
     if (this.props.items.length > 0) {
       const chiavi = this.getItemsKeys()
       return (
@@ -76,7 +75,7 @@ class UsersTable extends React.Component {
                 <td>{item.phone}</td>
                 <td>{item.website}</td>
                 <td>{item.company.name}</td>
-                {this.state.selectedRow === item.id ? <td><button onClick={this.editUser(item.id)}>Edit</button><button onClick={this.removeUser(item.id)}>Remove</button></td> : ''}
+                {this.state.selectedRow === item.id ? <td><button onClick={this.editUser(item.id)}>Edit</button><button onClick={this.removeUser(item.id)}>Remove</button></td> : <td></td> }
               </tr>
             ))
             }

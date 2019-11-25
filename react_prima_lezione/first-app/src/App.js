@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import Profiles from './components/Profiles/Profiles'
 import UsersList from './components/Users/UsersList'
+import {increment} from './actions'
 
 
 const navConfig = [
@@ -14,6 +15,8 @@ const navConfig = [
 
 
 export default class App extends Component {
+  
+  // useSelector(state => state.counter) 
   render() {
     return (
       <div className="App">
