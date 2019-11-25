@@ -1,0 +1,21 @@
+*Install redux 
+
+    npm install react-redux --save
+
+* State is updated through actions that are dispatched
+
+    store.dispatch({
+        type: 'SET_VISIBILITY_FILTER',
+        filter: 'SHOW_COMPLETED'
+    }) 
+
+
+* to tie state and actions together, we write a function called a reducer: a function that takes state and action as arguments, and returns the next state of the app
+
+    function visibilityFilter(state = 'SHOW_ALL', action) {
+        if (action.type === 'SET_VISIBILITY_FILTER') {
+            return action.filter
+        } else {
+            return state
+        }
+    }

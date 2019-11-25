@@ -3,18 +3,22 @@ import API from '../../utils/API'
 import UsersTable from './UsersTable'
 import UserForm from './UserForm'
 import Loading from '../commons/Loading'
+import Modal from './Modal'
 
 class UsersList extends Component {
     constructor() {
         super()
         this.state = {
             users: [],
+            selectedUser: null,
             loading: false,
             showUsers: true,
+            showModal: false,
             headerText: "Utenti",
-            btnText:  "Nuovo Utente"
+            btnText: "Nuovo Utente"
         }
         this.handleFormSubmission = this.handleFormSubmission.bind(this)
+        this.editUser = this.editUser.bind(this)
     }
     // async function that retrieves users
     async getUsers() {
@@ -33,12 +37,23 @@ class UsersList extends Component {
         }
     }
 
+    editUser(payload) {
+        let user = this.state.users.find(user => user.id === payload)
+        console.log(user)
+        this.setState({ selectedUser: user, showModal: true })
+
+    }
+
+    deleteUser(payload) {
+
+    }
+
     async handleFormSubmission(payload) {
         try {
             this.setState({ loading: true })
             // IS IT NECESSARY TO STRINGIFY??
             // let payloadJSON = JSON.stringify(payload)
-            let response = await API.post('/users', { payload});
+            let response = await API.post('/users', { payload });
             console.log(response.data.payload)
             response.status === 201 && alert('Utente creato')
         } catch (error) {
@@ -66,7 +81,8 @@ class UsersList extends Component {
                 </div>
                 <div className="mainContainer">
                     {this.state.loading ? <Loading /> : ''}
-        {this.state.showUsers ? <UsersTable items={this.state.users} /> : <UserForm handleSubmit={this.handleFormSubmission} /> }
+                    {this.state.showUsers ? <UsersTable items={this.state.users} handleEdit={this.editUser} handleRemove={this.removeUser} /> : <UserForm handleSubmit={this.handleFormSubmission} />}
+                    {this.state.showModal ? <Modal user={this.state.selectedUser} /> : <div></div>}
                 </div>
             </>
         )
