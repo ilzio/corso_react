@@ -1,14 +1,16 @@
 // imports all reducers 
-import counter from  './counter'
-import logged from  './isLogged'
+import showBar from  './toggleBarReducer'
+import isLoading from  './loadingReducer'
+// import fetchUsers from  './fetchUsersReducer'
 
 // import class that combines all reducers
 import {combineReducers} from 'redux'
 
 // combine them here 
 const rootReducers = combineReducers({
-    counter, 
-    logged
+    showBar,
+    isLoading,
+    // fetchUsers
 })
 
 

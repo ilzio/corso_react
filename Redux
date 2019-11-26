@@ -7,14 +7,17 @@ ACTIONS
 * State is updated through Actions: arrow functions that return an object describing how state is to be modified 
     *create a file called 'actions.js' and insert all actions inside, with export
 
+    export const INCREMENT = 'INCREMENT'
+    export const INCREMENT_BY = 'INCREMENT_BY'
+
     export const increment = () => {
         return{
-            type: 'INCREMENT'
+            type: INCREMENT
         }
     }
     export const incrementBy = (payload) => {
         return{
-            type: 'INCREMENT_BY'
+            type: INCREMENT_BY
             payload
         }
     }

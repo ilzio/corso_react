@@ -5,13 +5,15 @@ import UserForm from './UserForm'
 import Loading from '../commons/Loading'
 import Modal from './Modal'
 
+import {connect} from 'react-redux'
+import { startLoading, stopLoading } from '../../redux/actions/'
+
 class UsersList extends Component {
     constructor() {
         super()
         this.state = {
             users: [],
             selectedUser: null,
-            loading: false,
             showUsers: true,
             showModal: false,
             headerText: "Utenti",
@@ -23,7 +25,7 @@ class UsersList extends Component {
     // async function that retrieves users
     async getUsers() {
         try {
-            this.setState({ loading: true })
+            this.props.startLoading()
             let response = await API.get('/users');
             const retrievedUsers = response.data
             this.setState({
@@ -31,9 +33,9 @@ class UsersList extends Component {
             })
         } catch (error) {
             console.log(error)
-            this.setState({ loading: false })
+            this.props.stopLoading()
         } finally {
-            this.setState({ loading: false })
+            this.props.stopLoading()
         }
     }
 
@@ -50,7 +52,7 @@ class UsersList extends Component {
 
     async handleFormSubmission(payload) {
         try {
-            this.setState({ loading: true })
+            this.props.startLoading()
             // IS IT NECESSARY TO STRINGIFY??
             // let payloadJSON = JSON.stringify(payload)
             let response = await API.post('/users', { payload });
@@ -58,9 +60,9 @@ class UsersList extends Component {
             response.status === 201 && alert('Utente creato')
         } catch (error) {
             console.log(error)
-            this.setState({ loading: false })
+            this.props.stopLoading()
         } finally {
-            this.setState({ loading: false })
+            this.props.stopLoading()
             this.toggleForm()
             this.getUsers()
         }
@@ -80,17 +82,28 @@ class UsersList extends Component {
                     <button onClick={this.toggleForm}>{this.state.btnText}</button>
                 </div>
                 <div className="mainContainer">
-                    {this.state.loading ? <Loading /> : ''}
+                    {this.props.isLoading ? <Loading /> : ''}
                     {this.state.showUsers ? <UsersTable items={this.state.users} handleEdit={this.editUser} handleRemove={this.removeUser} /> : <UserForm handleSubmit={this.handleFormSubmission} />}
                     {this.state.showModal ? <Modal user={this.state.selectedUser} /> : <div></div>}
                 </div>
             </>
         )
     }
-    // once component has mounted, retrieve users, update state and render
+    
     componentDidMount() {
         this.getUsers()
     }
+    
 }
+        const mapStateToProps = state => {
+            return {
+                isLoading: state.isLoading
+            }
+        }
+    
+        const mapDispatchToProps = {
+            startLoading,
+            stopLoading
+        }
 
-export default UsersList
+export default connect(mapStateToProps, mapDispatchToProps)(UsersList)
