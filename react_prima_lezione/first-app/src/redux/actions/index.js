@@ -19,3 +19,25 @@ export const toggleBar = () => {
     }
 }
 
+export const getProfile = () => {
+    return async dispatch => {
+        
+        dispatch({
+            type: GET_PROFILE_PENDING,
+            paylo
+        })
+
+        //const response = await ()
+
+        dispatch({
+            type: GET_PROFILE_SUCCEEDED,
+            paylo
+        })
+
+        dispatch({
+            type: TOGGLE_BAR,
+            paylo
+        })
+    }
+}
+
