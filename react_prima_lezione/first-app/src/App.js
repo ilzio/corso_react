@@ -3,8 +3,6 @@ import './App.css'
 import Header from './components/Header'
 import Profiles from './components/Profiles/Profiles'
 import UsersList from './components/Users/UsersList'
-import { toggleBar } from './redux/actions/'
-import { connect } from 'react-redux';
 
 
 const navConfig = [
@@ -17,15 +15,10 @@ const navConfig = [
 
 class App extends Component {
 
-  handleClick = () => {
-    this.props.toggleBar()
-  }
-  // useSelector(state => state.counter) 
   render() {
     return (
       <div className="App">
-        <button onClick={this.handleClick}>Cliccami</button>
-        {this.props.showBar && <Header config={navConfig} />}
+        <Header config={navConfig} />
         <Profiles />
         <hr />
         <UsersList />
@@ -35,13 +28,5 @@ class App extends Component {
   }
 }
 
-const mapStatetoProps = state => {
-  return {
-    showBar: state.showBar
-  }
-}
-const mapDispatchToProps = {
-  toggleBar: toggleBar
-}
-export default connect(mapStatetoProps, mapDispatchToProps)(App)
+export default App
 

@@ -71,10 +71,10 @@ class UsersTable extends React.Component {
                 <td>{item.name}</td>
                 <td>{item.email}</td>
                 <td>{item.username}</td>
-                <td>{item.address.city}</td>
+                {/* <td>{item.address.city}</td> */}
                 <td>{item.phone}</td>
                 <td>{item.website}</td>
-                <td>{item.company.name}</td>
+                {/* <td>{item.company.name}</td> */}
                 {this.state.selectedRow === item.id ? <td><button onClick={this.editUser(item.id)}>Edit</button><button onClick={this.removeUser(item.id)}>Remove</button></td> : <td></td> }
               </tr>
             ))

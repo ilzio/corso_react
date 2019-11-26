@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import API from '../../utils/API'
 import UsersTable from './UsersTable'
 import UserForm from './UserForm'
 import Loading from '../commons/Loading'
 import Modal from './Modal'
 
 import {connect} from 'react-redux'
-import { startLoading, stopLoading } from '../../redux/actions/'
+import { startLoading, stopLoading } from '../../redux/actions/loading'
+import {retrieveUsers, addUser} from '../../redux/actions/users'
 
 class UsersList extends Component {
     constructor() {
@@ -23,21 +23,21 @@ class UsersList extends Component {
         this.editUser = this.editUser.bind(this)
     }
     // async function that retrieves users
-    async getUsers() {
-        try {
-            this.props.startLoading()
-            let response = await API.get('/users');
-            const retrievedUsers = response.data
-            this.setState({
-                users: retrievedUsers
-            })
-        } catch (error) {
-            console.log(error)
-            this.props.stopLoading()
-        } finally {
-            this.props.stopLoading()
-        }
-    }
+    // async getUsers() {
+    //     try {
+    //         this.props.startLoading()
+    //         let response = await API.get('/users');
+    //         const retrievedUsers = response.data
+    //         this.setState({
+    //             users: retrievedUsers
+    //         })
+    //     } catch (error) {
+    //         console.log(error)
+    //         this.props.stopLoading()
+    //     } finally {
+    //         this.props.stopLoading()
+    //     }
+    // }
 
     editUser(payload) {
         let user = this.state.users.find(user => user.id === payload)
@@ -52,19 +52,15 @@ class UsersList extends Component {
 
     async handleFormSubmission(payload) {
         try {
-            this.props.startLoading()
-            // IS IT NECESSARY TO STRINGIFY??
-            // let payloadJSON = JSON.stringify(payload)
-            let response = await API.post('/users', { payload });
-            console.log(response.data.payload)
-            response.status === 201 && alert('Utente creato')
+            // let response = await API.post('/users', { payload });
+            // console.log(response.data.payload)
+            // response.status === 201 && alert('Utente creato')
+            this.props.addUser(payload)
         } catch (error) {
             console.log(error)
-            this.props.stopLoading()
         } finally {
-            this.props.stopLoading()
             this.toggleForm()
-            this.getUsers()
+            // this.getUsers()
         }
     }
     toggleForm = () => {
@@ -83,7 +79,7 @@ class UsersList extends Component {
                 </div>
                 <div className="mainContainer">
                     {this.props.isLoading ? <Loading /> : ''}
-                    {this.state.showUsers ? <UsersTable items={this.state.users} handleEdit={this.editUser} handleRemove={this.removeUser} /> : <UserForm handleSubmit={this.handleFormSubmission} />}
+                    {this.state.showUsers ? <UsersTable items={this.props.users} handleEdit={this.editUser} handleRemove={this.removeUser} /> : <UserForm handleSubmit={this.handleFormSubmission} />}
                     {this.state.showModal ? <Modal user={this.state.selectedUser} /> : <div></div>}
                 </div>
             </>
@@ -91,19 +87,23 @@ class UsersList extends Component {
     }
     
     componentDidMount() {
-        this.getUsers()
+        // this.getUsers()
+        this.props.retrieveUsers()
     }
     
 }
         const mapStateToProps = state => {
             return {
-                isLoading: state.isLoading
+                isLoading: state.users.isLoading,
+                users: state.users.users
             }
         }
     
         const mapDispatchToProps = {
             startLoading,
-            stopLoading
+            stopLoading,
+            retrieveUsers,
+            addUser
         }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersList)

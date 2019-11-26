@@ -6,16 +6,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // import reducers from index file
-import rootReducer from './redux/reducers'
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import rootReducer from './redux/reducers'
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 
-
+// rootReducer defines name of state subcomponents!
 
 // creates store with importer combined reducers
 let store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+        applyMiddleware(thunk),
+        window.devToolsExtension ? window.devToolsExtension() : f => f //DEPRECATED!!!!
+    )
 )
 
 
