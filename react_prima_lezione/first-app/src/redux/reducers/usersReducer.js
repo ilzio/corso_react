@@ -1,34 +1,59 @@
 import {
-    
-    RECEIVE_USERS,
-    ADD_USER
+    GET_USERS_REQUEST_PENDING,
+    GET_USERS_REQUEST_SUCCEEDED,
+    GET_USERS_REQUEST_FAILED,
+    ADD_USER_REQUEST_PENDING,
+    ADD_USER_REQUEST_SUCCEEDED,
+    ADD_USER_REQUEST_FAILED
 } from '../actions/users'
-
-// Object.assign(target, ...sources)
-// copia tutte le proprietà enumerabili da uno o più oggetti di origine in un oggetto di destinazione e restituisce l'oggetto di destinazione 
-// -> in questo caso un oggetto vuoto riempito con lo stato precedente e l'oggetto passato come parametro (???) che diventa il nuovo stato?????
 
 const usersReducer = (
     state = {
         isLoading: false,
-        users: []
+        users: [],
+        error: {}
     }, action) => {
     switch (action.type) {
-        
-        case RECEIVE_USERS:
-            return Object.assign({}, state, {
+        case GET_USERS_REQUEST_PENDING:
+            return {
+                ...state,
+                isLoading: true
+
+            }
+        case ADD_USER_REQUEST_PENDING:
+            return {
+                ...state,
+                isLoading: true
+
+            }
+        case GET_USERS_REQUEST_SUCCEEDED:
+            return {
+                ...state,
                 isLoading: false,
                 users: action.payload,
 
-            })
-        case ADD_USER:
-            const newArray = [...state.users, action.payload];
-            console.log(newArray)
-            return Object.assign({}, state, {
+            }
+        case GET_USERS_REQUEST_FAILED:
+            return {
+                ...state,
                 isLoading: false,
-                users: newArray
+                error: action.payload,
 
-            })
+            }
+        case ADD_USER_REQUEST_FAILED:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload,
+
+            }
+        case ADD_USER_REQUEST_SUCCEEDED:
+            return {
+                ...state,
+                isLoading: false,
+                users: [...state.users, action.payload]
+
+            }
 
         default:
             return state;

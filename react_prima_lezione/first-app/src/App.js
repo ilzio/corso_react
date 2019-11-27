@@ -1,28 +1,37 @@
 import React, { Component } from 'react'
-import './App.css'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
 import Header from './components/Header'
 import Profiles from './components/Profiles/Profiles'
-import UsersList from './components/Users/UsersList'
-
+import Users from './components/Users/Users'
+import './App.css'
 
 const navConfig = [
   { title: 'Profili' },
   { title: 'Utenti' },
-  { title: 'About' },
 ]
 
-
-
 class App extends Component {
-
   render() {
     return (
       <div className="App">
-        <Header config={navConfig} />
-        <Profiles />
-        <hr />
-        <UsersList />
-        <hr />
+        <Router>
+          <Header config={navConfig} />
+          
+          <Switch>
+            <Route path="/Profili">
+              <Profiles />
+            </Route>
+            <Route path="/Utenti">
+              <Users />
+            </Route>
+          </Switch>
+        </Router>
+       
       </div>
     )
   }

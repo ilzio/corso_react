@@ -20,45 +20,27 @@ class UsersTable extends React.Component {
     }
   }
 
-
-  // solution to pass arguments to onclick function instead of arrow function 
   handleClick = (id) => () => {
     this.setState(prevState => {
       prevState.selectedRow = id
-      // must return something, if not it will not update state!
       return {
         selectedRow: id
       }
     })
   }
 
-  editUser = (id) => () => {
-    console.log("editando utente " + id)
-    let user = this.props.items.find(user => user.id === id)
-    // console.log(user)
-    this.setState({
-      selectedUserToEdit: user
-    })
-    this.props.handleEdit(id)
-  }
-
-  removeUser = (id) => () => {
-    console.log("rimuovendo utente " + id)
-  }
-
-
   render() {
     if (this.props.items.length > 0) {
-      const chiavi = this.getItemsKeys()
       return (
         <table className="profilesTable">
           <thead className="profilesTableHead">
             <tr>
-              {chiavi ?
-                chiavi.map((item, index) => (
-                  <td key={index}>{item}</td>
-                ))
-                : ''}
+              <td>ID</td>
+              <td>Nome</td>
+              <td>Email</td>
+              <td>Username</td>
+              <td>Tel</td>
+              <td>Web</td>
             </tr>
           </thead>
           <tbody>
@@ -71,11 +53,8 @@ class UsersTable extends React.Component {
                 <td>{item.name}</td>
                 <td>{item.email}</td>
                 <td>{item.username}</td>
-                {/* <td>{item.address.city}</td> */}
                 <td>{item.phone}</td>
                 <td>{item.website}</td>
-                {/* <td>{item.company.name}</td> */}
-                {this.state.selectedRow === item.id ? <td><button onClick={this.editUser(item.id)}>Edit</button><button onClick={this.removeUser(item.id)}>Remove</button></td> : <td></td> }
               </tr>
             ))
             }
