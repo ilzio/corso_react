@@ -34,6 +34,7 @@ class Users extends Component {
         }))
     }
     render() {
+        console.log("books" ,this.props.books)
         return (
             <>
                 <div className="topContainer">
@@ -51,17 +52,18 @@ class Users extends Component {
                         )}
                     {this.props.error && <div>{this.props.error.message} </div>}
                 </div>
+                
             </>
         )
     }
 }
-
 
 const mapStateToProps = state => {
     return {
         isLoading: state.users.isLoading,
         users: state.users.users,
         error: state.users.error,
+        books: state.books
     }
 }
 

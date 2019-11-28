@@ -1,3 +1,6 @@
+import { resourceReducer } from 'redux-resource';
+
+
 // imports all reducers 
 import usersReducer from  './usersReducer'
 
@@ -7,6 +10,7 @@ import {combineReducers} from 'redux'
 // combine them here 
 const rootReducers = combineReducers({
     users: usersReducer,
+    books: resourceReducer('books')
 })
 
 

@@ -8,11 +8,13 @@ import {
 import Header from './components/Header'
 import Profiles from './components/Profiles/Profiles'
 import Users from './components/Users/Users'
+import Books from './components/Books/Books'
 import './App.css'
 
 const navConfig = [
   { title: 'Profili' },
   { title: 'Utenti' },
+  { title: 'Libri' }
 ]
 
 class App extends Component {
@@ -28,6 +30,9 @@ class App extends Component {
             </Route>
             <Route path="/Utenti">
               <Users />
+            </Route>
+            <Route path="/Libri">
+              <Books />
             </Route>
           </Switch>
         </Router>
