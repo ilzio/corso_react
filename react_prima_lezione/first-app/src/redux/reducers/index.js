@@ -10,7 +10,7 @@ import {combineReducers} from 'redux'
 // combine them here 
 const rootReducers = combineReducers({
     users: usersReducer,
-    books: resourceReducer('books')
+    posts: resourceReducer('posts')
 })
 
 

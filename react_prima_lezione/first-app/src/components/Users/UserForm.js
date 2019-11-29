@@ -27,23 +27,23 @@ class UserForm extends React.Component {
       <form onSubmit={this.handleSubmit} className="Form">
         <div className="form-group">
           <label htmlFor="name">Nome</label>
-          <input name="name" onChange={this.handleInputChange} type="text" />
+          <input value={this.state.name} name="name" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
           <label htmlFor="username">Username</label>
-          <input name="username" onChange={this.handleInputChange} type="text" />
+          <input value={this.state.username} name="username" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input name="email" onChange={this.handleInputChange} type="text" />
+          <input value={this.state.email} name="email" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
           <label htmlFor="phone">Tel</label>
-          <input name="phone" onChange={this.handleInputChange} type="text" />
+          <input value={this.state.phone} name="phone" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
           <label htmlFor="website">Website</label>
-          <input name="website" onChange={this.handleInputChange} type="text" />
+          <input value={this.state.website} name="website" onChange={this.handleInputChange} type="text" />
         </div>
         <button type="submit">Invia</button>
       </form>

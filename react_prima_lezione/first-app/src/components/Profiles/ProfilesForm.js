@@ -23,11 +23,11 @@ class ProfilesForm extends React.Component {
       <form onSubmit={this.handleSubmit} className="Form">
         <div className="form-group">
           <label htmlFor="id">Id</label>
-          <input name="id" onChange={this.handleInputChange} type="text" />
+          <input value={this.state.id} name="id" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
           <label htmlFor="jobTitle">jobTitle</label>
-          <input name="jobTitle" onChange={this.handleInputChange} type="text" />
+          <input value={this.state.jobTitle} name="jobTitle" onChange={this.handleInputChange} type="text" />
         </div>
         <div className="form-group">
           <label htmlFor="type">Type </label>
@@ -35,15 +35,15 @@ class ProfilesForm extends React.Component {
             <option value="core">core</option>
             <option value="rare">rare</option>
           </select>
-          {/* <input name="type" onChange={this.handleInputChange}   type="text" /> */}
+          {/* <input value={this.state.} name="type" onChange={this.handleInputChange}   type="text" /> */}
         </div>
         <div className="form-group">
           <label htmlFor="positionVacant">positionVacant</label>
-          <input name="positionVacant" onChange={this.handleInputChange} type="number" />
+          <input value={this.state.positionVacant} name="positionVacant" onChange={this.handleInputChange} type="number" />
         </div>
         <div className="form-group">
           <label htmlFor="staffLeasingOpportunity">staffLeasingOpportunity</label>
-          <input type="checkbox" onChange={this.handleInputChange} name="staffLeasingOpportunity" />
+          <input value={this.state.staffLeasingOpportunity} type="checkbox" onChange={this.handleInputChange} name="staffLeasingOpportunity" />
         </div>
         <button type="submit">Invia</button>
       </form>

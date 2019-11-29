@@ -7,14 +7,15 @@ import {
 
 import Header from './components/Header'
 import Profiles from './components/Profiles/Profiles'
+import Home from './components/Home/Home'
 import Users from './components/Users/Users'
-import Books from './components/Books/Books'
+import Posts from './components/Posts/Posts'
 import './App.css'
 
 const navConfig = [
   { title: 'Profili' },
   { title: 'Utenti' },
-  { title: 'Libri' }
+  { title: 'Posts' }
 ]
 
 class App extends Component {
@@ -25,14 +26,17 @@ class App extends Component {
           <Header config={navConfig} />
           
           <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route path="/Profili">
               <Profiles />
             </Route>
             <Route path="/Utenti">
               <Users />
             </Route>
-            <Route path="/Libri">
-              <Books />
+            <Route path="/Posts">
+              <Posts />
             </Route>
           </Switch>
         </Router>
