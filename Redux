@@ -6,6 +6,7 @@ ACTIONS
 
 * State is updated through Actions: arrow functions that return an object describing how state is to be modified 
     *create a file called 'actions.js' and insert all actions inside, with export
+    *Action types (consts) are better contained in another separated file. 
 
     export const INCREMENT = 'INCREMENT'
     export const INCREMENT_BY = 'INCREMENT_BY'

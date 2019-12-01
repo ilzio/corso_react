@@ -116,4 +116,40 @@ after npm start
 
 FORMS 
 
-* form components' state should exclusively contain 
+* form components' state should exclusively contain form fields. 
+* in order to do so -> 
+
+    * assign to every input a name and a value 
+         
+         <input value={this.state.email} name="email" onChange={this.handleInputChange} type="text" />
+
+    *create a method that handles the input change event that will map the value of each field  
+
+        handleInputChange = (event) => {
+            const value = event.target.value
+            const name = event.target.name
+            this.setState({
+                [name]: value
+            });
+        }
+
+* create a function inside parent component that will be passed as argument to form and, when executed, will exclusively prevent default submission and  return its state. 
+
+PARENT:
+
+1)
+    <Form handleSubmit={this.handleFormSubmission} />
+2)
+    handleFormSubmission = (payload) => {
+        this.props.addUser(payload)
+        this.toggleForm()
+    }
+
+CHILD FORM: 
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.handleSubmit(this.state)
+    }
+
+

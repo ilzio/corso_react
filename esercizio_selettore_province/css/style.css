@@ -1,0 +1,27 @@
+body {
+    background-color: green !important;
+}
+
+.white {
+    color: white;
+}
+
+.fullscreen {
+    position: relative;
+    height: 100vh;
+}
+
+.center-me {
+    position: absolute;
+    top: 50%;
+    transform: translateX();
+}
+
+.custom-button {
+    background-color: white;
+    border-color: white;
+    color: black;
+
+    /* font-weight: bold; */
+    text-transform: uppercase;
+}
